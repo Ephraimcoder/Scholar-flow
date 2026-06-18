@@ -458,8 +458,8 @@ const LandingPage = () => {
               href="/privacy"
               onClick={(e) => {
                 e.preventDefault();
-                window.history.pushState({}, '', '/privacy');
-                window.dispatchEvent(new PopStateEvent('popstate'));
+                // Use hash navigation so HashRouter picks up the route on GitHub Pages
+                window.location.hash = '/privacy';
               }}
               className="nav-link"
               style={{ cursor: 'pointer' }}
@@ -508,7 +508,7 @@ const LandingPage = () => {
                     {l}
                   </a>
                 ))}
-                <a href="/privacy" onClick={(e) => { e.preventDefault(); setMobileOpen(false); window.history.pushState({}, '', '/privacy'); window.dispatchEvent(new PopStateEvent('popstate')); }} className="text-white">
+                <a href="/privacy" onClick={(e) => { e.preventDefault(); setMobileOpen(false); window.location.hash = '/privacy'; }} className="text-white">
                   Privacy Policy
                 </a>
                 <a href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-white font-semibold">
