@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Scholar-flow/',
+  // Use a relative base so the site works when hosted under GitHub Pages
+  // regardless of the repository name or path.
+  base: './',
   build: {
     outDir: 'docs'
   },
